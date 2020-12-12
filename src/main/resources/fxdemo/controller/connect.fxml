@@ -12,8 +12,8 @@
          <children>
             <TableView fx:id="parameterTable" editable="true" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                <columns>
-                  <TableColumn fx:id="parameterColumn" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%label.parameter" />
-                  <TableColumn fx:id="valueColumn" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%label.value" />
+                  <TableColumn fx:id="parameterColumn" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="%label.parameter" />
+                  <TableColumn fx:id="valueColumn" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="%label.value" />
                </columns>
             </TableView>
          </children></AnchorPane>

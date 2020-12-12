@@ -21,7 +21,6 @@ public class FXDemo extends Application  {
         FXMLLoader fxmlLoader = new FXMLLoader(location, resources);
 
         Pane root = (Pane)fxmlLoader.load();
-        //AppController controller = (AppController)fxmlLoader.getController();
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());

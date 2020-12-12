@@ -3,6 +3,7 @@ module fxdemo {
     requires javafx.fxml;
     requires javafx.graphics;
     requires java.logging;
+    requires kafka.clients;
 
     opens fxdemo to javafx.fxml, javafx.graphics;
     opens fxdemo.controller to javafx.fxml, javafx.graphics;
