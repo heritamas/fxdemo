@@ -45,7 +45,7 @@ jlink {
     }
 }
 
-mainClassName = "fxdemo.FXDemo"
+mainClassName = "fxdemo/fxdemo.FXDemo"
 
 
 test {

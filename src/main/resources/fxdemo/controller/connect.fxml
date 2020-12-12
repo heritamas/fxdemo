@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<DialogPane fx:id="pane" contentText="%text.connect" headerText="%title.connect" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxdemo.controller.ConnectController">
+    <content>
+      <AnchorPane>
+         <children>
+            <TableView fx:id="parameterTable" editable="true" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <columns>
+                  <TableColumn fx:id="parameterColumn" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%label.parameter" />
+                  <TableColumn fx:id="valueColumn" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%label.value" />
+               </columns>
+            </TableView>
+         </children></AnchorPane>
+    </content>
+    <expandableContent>
+      <AnchorPane />
+    </expandableContent>
+   <buttonTypes>
+      <ButtonType fx:constant="APPLY" />
+      <ButtonType fx:constant="CANCEL" />
+      <ButtonType fx:constant="NEXT" />
+   </buttonTypes>
+</DialogPane>

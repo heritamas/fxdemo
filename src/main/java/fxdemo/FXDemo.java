@@ -1,6 +1,7 @@
 package fxdemo;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -10,6 +11,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FXDemo extends Application  {
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -27,11 +29,16 @@ public class FXDemo extends Application  {
         primaryStage.setTitle("JavaFX DEMO");
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.show();
 
     }
 
+    @Override
+    public void stop() throws Exception {
+        Platform.exit();
+    }
+
     public static void main(String[] args) {
-        launch(args);
+        Application myApp = new FXDemo();
+        myApp.launch(args);
     }
 }
