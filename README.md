@@ -28,5 +28,6 @@ tartalmazza a program egy grafikai reszletnek leirasat (egy ablak, vagy egy dial
 ## Mit csinal a program ##
 
 A menubol a `Connect...` menut valasztva egy Kafka szerverhez torteno csatlakozashoz szukseges parametereket bekero
-dialogusablakhoz jutunk. Ez utan a `Open` menu lekeri a topicok listajat, amelyek egy lista nezetben lathatoak. Egy
-topicot kivalasztva, par reszlet (particiok, isr, stb) jelenik meg rola egy tablazatban.
+dialogusablakhoz jutunk. Itt a `Next` gombbal tudunk uj sornyi parametert felvenni. A vegeztunk akkor `Apply`-t, vagy ha
+meggondoltuk magunkat, akkor `Cancel`-t kell nyomni. Ez utan a `Open` menu lekeri a topicok listajat, amelyek egy lista
+nezetben lathatoak. Egy topicot kivalasztva, par reszlet (particiok, isr, stb) jelenik meg rola egy tablazatban.
