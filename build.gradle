@@ -24,7 +24,8 @@ repositories {
 }
 
 dependencies {
-    compile 'org.apache.kafka:kafka-clients:2.6.0'
+    //compile 'org.apache.kafka:kafka-clients:2.6.0'
+    compile 'org.apache.kafka:kafka-clients:2.5.0'
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.0-jre'
@@ -33,6 +34,10 @@ dependencies {
     testImplementation 'org.testng:testng:6.14.3'
 }
 
+
+application {
+    //applicationDefaultJvmArgs = ['-Djava.util.logging.config.file=logging.properties']
+}
 
 javafx {
     version = "11"

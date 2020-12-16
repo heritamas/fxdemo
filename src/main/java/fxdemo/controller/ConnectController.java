@@ -1,6 +1,7 @@
 package fxdemo.controller;
 
 import fxdemo.model.ConnectModel;
+import fxdemo.model.Pair;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.net.URL;
@@ -34,13 +36,13 @@ public class ConnectController {
     private DialogPane pane;
 
     @FXML
-    private TableView<ConnectModel.Pair<String, String>> parameterTable;
+    private TableView<Pair<String, String>> parameterTable;
 
     @FXML
-    private TableColumn<ConnectModel.Pair<String, String>, String> parameterColumn;
+    private TableColumn<Pair<String, String>, String> parameterColumn;
 
     @FXML
-    private TableColumn<ConnectModel.Pair<String, String>, String> valueColumn;
+    private TableColumn<Pair<String, String>, String> valueColumn;
 
     @FXML
     void initialize() {
@@ -50,17 +52,15 @@ public class ConnectController {
         assert valueColumn != null : "fx:id=\"valueColumn\" was not injected: check your FXML file 'connect.fxml'.";
 
         pane.lookupButton(ButtonType.NEXT).addEventFilter(ActionEvent.ACTION, event -> {
-            model.getTablerows().add(new ConnectModel.Pair<String, String>("key", "value"));
+            model.getTablerows().add(new Pair<String, String>("key", "value"));
             event.consume();
         });
 
         parameterColumn.setCellFactory(ComboBoxTableCell.forTableColumn(model.getParameters()));
-        parameterColumn.setCellValueFactory( cdf -> {
-            return new SimpleStringProperty(cdf.getValue().getKey());
-        });
+        parameterColumn.setCellValueFactory( new PropertyValueFactory<Pair<String, String>, String>("key"));
         parameterColumn.setOnEditCommit(event -> {
-            ConnectModel.Pair<String, String> entry = event.getTableView().getItems().get(event.getTablePosition().getRow());
-            entry.setKey(event.getNewValue());
+            Pair<String, String> pair = event.getTableView().getItems().get(event.getTablePosition().getRow());
+            pair.setKey(event.getNewValue());
         });
 
         valueColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -68,7 +68,7 @@ public class ConnectController {
             return new SimpleStringProperty(cdf.getValue().getValue());
         });
         valueColumn.setOnEditCommit(event -> {
-            ConnectModel.Pair<String, String> entry = event.getTableView().getItems().get(event.getTablePosition().getRow());
+            Pair<String, String> entry = event.getTableView().getItems().get(event.getTablePosition().getRow());
             entry.setValue(event.getNewValue());
         });
 
@@ -76,13 +76,13 @@ public class ConnectController {
     }
 
     public Map<String, String> getTableMap() {
-        /*
+
         model.getTablerows()
                 .stream()
                 .forEach(entr -> log.info("entry: " + entr));
-         */
+
         return model.getTablerows().stream().collect(
-                Collectors.toMap(ConnectModel.Pair::getKey, ConnectModel.Pair::getValue, (acc, add) -> add)
+                Collectors.toMap(Pair::getKey, Pair::getValue, (acc, add) -> add)
         );
     }
 }
