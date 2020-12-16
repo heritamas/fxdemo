@@ -79,7 +79,8 @@ public class ConnectController {
 
         model.getTablerows()
                 .stream()
-                .forEach(entr -> log.info("entry: " + entr));
+                .map(Pair::toString)
+                .forEach(log::info);
 
         return model.getTablerows().stream().collect(
                 Collectors.toMap(Pair::getKey, Pair::getValue, (acc, add) -> add)
